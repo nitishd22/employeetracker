@@ -13,10 +13,12 @@ const db = mysql.createConnection({
     database: 'employeeDB'
 });
     
-db.connect(function (err) {
-    if(err) {throw err};
-    console.log("connected with ID: "+ db.threadID);
-    firstPrompt();
+db.connect((err) => {
+  if (err) {
+    console.log("ERROR:" + err);
+  }
+  console.log("Connected as id " + db.threadId);
+  firstPrompt();
 });
 
 function firstPrompt(){
